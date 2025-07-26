@@ -4,7 +4,6 @@ import { BookOpen, GamepadIcon, FlaskRound as Flask, Shield, Mailbox as Toolbox,
 import Login from './pages/Login';
 import SignUp from './pages/SignUp';
 import Journey from './pages/Journey';
-
 function App() {
   return (
     <Routes>
