@@ -1,5 +1,13 @@
 import React from 'react';
-import { BookOpen, GamepadIcon, FlaskRound as Flask, Shield, Mailbox as Toolbox, Users, ExternalLink } from 'lucide-react';
+import {
+  BookOpen,
+  GamepadIcon,
+  FlaskRound as Flask,
+  Shield,
+  Mailbox as Toolbox,
+  Users,
+  ExternalLink
+} from 'lucide-react';
 import { Link } from 'react-router-dom';
 
 const cards = [
@@ -51,6 +59,7 @@ function Journey() {
   return (
     <div className="min-h-screen bg-gradient-to-br from-gray-900 via-indigo-950 to-gray-900 text-white p-6 md:p-12">
       <div className="max-w-7xl mx-auto">
+        {/* Login Button */}
         <div className="flex justify-end mb-8">
           <Link
             to="https://threat-sim-auth.vercel.app/"
@@ -59,6 +68,8 @@ function Journey() {
             Login
           </Link>
         </div>
+
+        {/* Header */}
         <div className="text-center mb-12">
           <h1 className="text-4xl md:text-5xl font-bold mb-4 bg-gradient-to-r from-indigo-400 to-purple-500 bg-clip-text text-transparent">
             ThreatSim
@@ -69,25 +80,26 @@ function Journey() {
           </p>
         </div>
 
+        {/* Cards Grid */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-          {cards.map((card, index) => (
+          {cards.map(({ title, description, icon: Icon, action, link }, index) => (
             <a
               key={index}
-              href={card.link}
+              href={link}
               target="_blank"
               rel="noopener noreferrer"
               className="group block p-6 rounded-2xl bg-gray-800/50 backdrop-blur-sm border border-gray-700/50 hover:bg-gray-700/50 transition-all duration-300 hover:shadow-xl hover:shadow-indigo-500/10 hover:border-indigo-500/50"
             >
               <div className="flex flex-col h-full">
                 <div className="flex items-center mb-4">
-                  <card.icon className="w-8 h-8 text-indigo-400" />
-                  <h3 className="text-xl font-semibold ml-3">{card.title}</h3>
+                  <Icon className="w-8 h-8 text-indigo-400" />
+                  <h3 className="text-xl font-semibold ml-3">{title}</h3>
                 </div>
                 <p className="text-gray-400 mb-6 flex-grow">
-                  {card.description}
+                  {description}
                 </p>
                 <div className="flex items-center text-indigo-400 group-hover:text-indigo-300 transition-colors">
-                  <span className="font-medium">{card.action}</span>
+                  <span className="font-medium">{action}</span>
                   <ExternalLink className="w-4 h-4 ml-2 transition-transform group-hover:translate-x-1" />
                 </div>
               </div>
