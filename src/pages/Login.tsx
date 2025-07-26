@@ -9,7 +9,6 @@ function Login() {
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    // Handle login logic here
     console.log('Login attempt:', { email, password });
   };
 
@@ -23,15 +22,17 @@ function Login() {
           <ArrowLeft className="w-4 h-4 mr-2" />
           Back to Journey
         </Link>
-        
+
         <div className="bg-gray-800/50 backdrop-blur-sm border border-gray-700/50 rounded-2xl p-8">
           <div className="flex items-center justify-center mb-8">
             <Shield className="w-12 h-12 text-indigo-400" />
           </div>
-          
+
           <h2 className="text-2xl font-bold text-center mb-2 text-white">Welcome Back</h2>
-          <p className="text-gray-400 text-center mb-8">Sign in to continue your cybersecurity journey</p>
-          
+          <p className="text-gray-400 text-center mb-8">
+            Sign in to continue your cybersecurity journey
+          </p>
+
           <form onSubmit={handleSubmit} className="space-y-6">
             <div>
               <label htmlFor="email" className="block text-sm font-medium text-gray-300 mb-2">
@@ -47,7 +48,7 @@ function Login() {
                 required
               />
             </div>
-            
+
             <div>
               <label htmlFor="password" className="block text-sm font-medium text-gray-300 mb-2">
                 Password
@@ -75,7 +76,7 @@ function Login() {
                 </button>
               </div>
             </div>
-            
+
             <div className="flex items-center justify-between text-sm">
               <label className="flex items-center text-gray-300">
                 <input
@@ -88,7 +89,7 @@ function Login() {
                 Forgot password?
               </a>
             </div>
-            
+
             <button
               type="submit"
               className="w-full py-3 px-4 bg-gradient-to-r from-indigo-600 to-purple-600 text-white font-medium rounded-lg hover:from-indigo-700 hover:to-purple-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2 focus:ring-offset-gray-900 transition-all"
@@ -96,7 +97,7 @@ function Login() {
               Sign In
             </button>
           </form>
-          
+
           <p className="mt-6 text-center text-gray-400">
             Don't have an account?{' '}
             <Link to="/signup" className="text-indigo-400 hover:text-indigo-300 transition-colors">
