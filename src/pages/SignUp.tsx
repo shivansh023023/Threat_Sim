@@ -14,15 +14,14 @@ function SignUp() {
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    // Handle sign up logic here
     console.log('Sign up attempt:', formData);
   };
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const { name, value } = e.target;
-    setFormData(prev => ({
+    setFormData((prev) => ({
       ...prev,
-      [name]: value
+      [name]: value,
     }));
   };
 
@@ -36,15 +35,17 @@ function SignUp() {
           <ArrowLeft className="w-4 h-4 mr-2" />
           Back to Journey
         </Link>
-        
+
         <div className="bg-gray-800/50 backdrop-blur-sm border border-gray-700/50 rounded-2xl p-8">
           <div className="flex items-center justify-center mb-8">
             <Shield className="w-12 h-12 text-indigo-400" />
           </div>
-          
+
           <h2 className="text-2xl font-bold text-center mb-2 text-white">Create Account</h2>
-          <p className="text-gray-400 text-center mb-8">Join our cybersecurity community today</p>
-          
+          <p className="text-gray-400 text-center mb-8">
+            Join our cybersecurity community today
+          </p>
+
           <form onSubmit={handleSubmit} className="space-y-6">
             <div>
               <label htmlFor="fullName" className="block text-sm font-medium text-gray-300 mb-2">
@@ -77,7 +78,7 @@ function SignUp() {
                 required
               />
             </div>
-            
+
             <div>
               <label htmlFor="password" className="block text-sm font-medium text-gray-300 mb-2">
                 Password
@@ -135,27 +136,27 @@ function SignUp() {
                 </button>
               </div>
             </div>
-            
+
             <div className="flex items-center text-sm">
               <label className="flex items-center text-gray-300">
                 <input
                   type="checkbox"
-                  className="w-4 h-4 rounded border-gray-600 text-indigo-500 focus:ring-indigo-500 focus:ring-offset-0 bg-gray-700/50"
+                  className="w-4 h-4 rounded border-gray-600 text-indigo-500 focus:ring-indigo-500 bg-gray-700/50"
                   required
                 />
                 <span className="ml-2">
                   I agree to the{' '}
                   <a href="#" className="text-indigo-400 hover:text-indigo-300">
                     Terms of Service
-                  </a>
-                  {' '}and{' '}
+                  </a>{' '}
+                  and{' '}
                   <a href="#" className="text-indigo-400 hover:text-indigo-300">
                     Privacy Policy
                   </a>
                 </span>
               </label>
             </div>
-            
+
             <button
               type="submit"
               className="w-full py-3 px-4 bg-gradient-to-r from-indigo-600 to-purple-600 text-white font-medium rounded-lg hover:from-indigo-700 hover:to-purple-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2 focus:ring-offset-gray-900 transition-all"
@@ -163,7 +164,7 @@ function SignUp() {
               Create Account
             </button>
           </form>
-          
+
           <p className="mt-6 text-center text-gray-400">
             Already have an account?{' '}
             <Link to="/login" className="text-indigo-400 hover:text-indigo-300 transition-colors">
