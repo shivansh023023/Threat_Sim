@@ -27,10 +27,10 @@ const cards = [
   },
   {
     title: 'Simulation Lab',
-    description: 'Practice in real-world scenarios with our virtual lab environment.',
+    description: 'Practice in real-world scenarios with our enhanced virtual lab environment.',
     icon: Flask,
     action: 'Enter Lab',
-    link: 'https://threatlab.netlify.app/'
+    link: '/simulation-lab'
   },
   {
     title: 'Threat Map',
@@ -82,29 +82,36 @@ function Journey() {
 
         {/* Cards Grid */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-          {cards.map(({ title, description, icon: Icon, action, link }, index) => (
-            <a
-              key={index}
-              href={link}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="group block p-6 rounded-2xl bg-gray-800/50 backdrop-blur-sm border border-gray-700/50 hover:bg-gray-700/50 transition-all duration-300 hover:shadow-xl hover:shadow-indigo-500/10 hover:border-indigo-500/50"
-            >
-              <div className="flex flex-col h-full">
-                <div className="flex items-center mb-4">
-                  <Icon className="w-8 h-8 text-indigo-400" />
-                  <h3 className="text-xl font-semibold ml-3">{title}</h3>
+          {cards.map((card, index) => {
+            const isInternalLink = card.link.startsWith('/');
+            const CardComponent = isInternalLink ? Link : 'a';
+            const linkProps = isInternalLink 
+              ? { to: card.link }
+              : { href: card.link, target: '_blank', rel: 'noopener noreferrer' };
+            const Icon = card.icon;
+
+            return (
+              <CardComponent
+                key={index}
+                {...linkProps}
+                className="group block p-6 rounded-2xl bg-gray-800/50 backdrop-blur-sm border border-gray-700/50 hover:bg-gray-700/50 transition-all duration-300 hover:shadow-xl hover:shadow-indigo-500/10 hover:border-indigo-500/50"
+              >
+                <div className="flex flex-col h-full">
+                  <div className="flex items-center mb-4">
+                    <Icon className="w-8 h-8 text-indigo-400" />
+                    <h3 className="text-xl font-semibold ml-3">{card.title}</h3>
+                  </div>
+                  <p className="text-gray-400 mb-6 flex-grow">
+                    {card.description}
+                  </p>
+                  <div className="flex items-center text-indigo-400 group-hover:text-indigo-300 transition-colors">
+                    <span className="font-medium">{card.action}</span>
+                    <ExternalLink className="w-4 h-4 ml-2 transition-transform group-hover:translate-x-1" />
+                  </div>
                 </div>
-                <p className="text-gray-400 mb-6 flex-grow">
-                  {description}
-                </p>
-                <div className="flex items-center text-indigo-400 group-hover:text-indigo-300 transition-colors">
-                  <span className="font-medium">{action}</span>
-                  <ExternalLink className="w-4 h-4 ml-2 transition-transform group-hover:translate-x-1" />
-                </div>
-              </div>
-            </a>
-          ))}
+              </CardComponent>
+            );
+          })}
         </div>
       </div>
     </div>
