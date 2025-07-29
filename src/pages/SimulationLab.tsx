@@ -5,6 +5,7 @@ import EnhancedNetworkGraph from '../components/EnhancedNetworkGraph';
 import KnowledgeCards from '../components/KnowledgeCards';
 import ThreatHuntingChallenges from '../components/ThreatHuntingChallenges';
 import VirtualSOC from '../components/VirtualSOC';
+import SecurityTools from '../components/SecurityTools';
 
 const SimulationLab: React.FC = () => {
   const [activeSection, setActiveSection] = useState<'dashboard' | 'network' | 'challenges' | 'tools' | 'soc'>('dashboard');
@@ -232,20 +233,7 @@ const SimulationLab: React.FC = () => {
             )}
 
             {activeSection === 'tools' && (
-              <>
-                {/* Page Header */}
-                <div className="mb-8">
-                  <h2 className="text-3xl font-bold mb-2">Security Tools</h2>
-                  <p className="text-gray-400">Advanced security analysis and forensic tools</p>
-                </div>
-
-                {/* Placeholder for Security Tools */}
-                <div className="bg-gradient-to-br from-gray-800/50 to-gray-700/30 border border-gray-600/50 rounded-lg p-8 text-center">
-                  <Server className="w-16 h-16 text-gray-400 mx-auto mb-4" />
-                  <h3 className="text-xl font-semibold text-gray-300 mb-2">Security Tools Coming Soon</h3>
-                  <p className="text-gray-500">Advanced security analysis tools and forensic capabilities will be available in this section.</p>
-                </div>
-              </>
+              <SecurityTools />
             )}
 
             {activeSection === 'soc' && (
